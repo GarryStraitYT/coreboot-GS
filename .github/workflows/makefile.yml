@@ -9,14 +9,15 @@ on:
 jobs:
   build:
 
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
 
     - name: Install Tools and Libraries
       run: sudo apt install -y bison build-essential curl flex git gnat imagemagick libncurses5-dev m4 nasm python-is-python3 uuid-dev zlib1g-dev libssl-dev
-
+    - name: CD into coreboot-GS
+      run: cd coreboot-GS
     - name: configure dependencies
       run: git submodule update --init --checkout --recursive
 
