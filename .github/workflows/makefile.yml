@@ -14,16 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install Tools and Libraries
-      run: sudo apt install -y bison build-essential curl flex git gnat imagemagick libncurses5-dev m4 nasm python-is-python3 uuid-dev zlib1g-dev libssl-dev
-
-
-    
-    - name: configure dependencies
-      run: git submodule update --init --checkout --recursive
-
-    - name: Install dependencies
-      run: make crossgcc-i386 CPUS=$(nproc)
-
-    - name: Building Firmware
-      run: ./build-uefi.sh stout
+    - name: Install neofetch
+      run: sudo apt install -y neofetch
+    - name: run neofetch
+      run: neofetch --stdout
